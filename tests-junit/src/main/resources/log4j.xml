@@ -1,0 +1,21 @@
+<Configuration monitorInterval="30">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%highlight{[%d{HH:mm:ss.SSS}] | %-5p | %-32.42t | %-32.42c{1} | %m%n}{FATAL=red blink, ERROR=red blink, WARN=yellow bold, INFO=black, DEBUG=green bold, TRACE=blue}"/>
+        </Console>
+        <RollongRandomAccessFile name="FileAppender" filename="test.log" filePattern="history/test.log.%d{yyyy-MM-dd}">
+            <PatternLayout pattern="%highlight{[%d{HH:mm:ss.SSS}] | %-5p | %-32.42t | %-32.42c{1} | %m%n"/>
+            <Policies>
+                <SizeBasedTriggeringPolice size="100 MB"/>
+            </Policies>
+        </RollongRandomAccessFile>
+    </Appenders>
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+        </Root>
+        <AsyncLogger name="fileLogger" level="info">
+            <AppenderRef ref="FileAppender" />
+        </AsyncLogger>
+    </Loggers>
+</Configuration>

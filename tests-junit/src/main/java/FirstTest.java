@@ -19,14 +19,13 @@ public class FirstTest {
     driver.quit();
   }
 
-  public static void main(String[] args) {
-    logger.info("test start");
-    logger.info("test end");
-  }
 
   @Test
-  public void testUntitledTestCase() {
+  public void testFirstTest() {
+    logger.info("Start test FirstTest!");
     driver.get("https://otus.ru/");
+    logger.info("Stop test FirstTest!");
+
   }
 
 
