@@ -13,7 +13,6 @@ public class FirstTest {
 
   @Before
   public void setUp() {
-    wd = new ChromeDriver();
   }
 
   @After
